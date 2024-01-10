@@ -1,5 +1,7 @@
 package com.taskmanagerapp;
 
+import java.util.Scanner;
+
 public class Task {
     private int id;
     private String title;
@@ -8,55 +10,27 @@ public class Task {
     private int priority;
     private int status;
 
-    public Task(String title, String description, int dueDate, int priority, int status) {
-        this.title = title;
-        this.description = description;
-        this.dueDate = dueDate;
-        this.priority = priority;
-        this.status = status;
+    public Task() {
+        taskCreation();
+    }
+    public void taskCreation(){
+        Scanner in = new Scanner(System.in);
+        System.out.println("Please enter the title of your task \n ");
+        this.title = in.nextLine();
+
+        System.out.println("Please enter the description of your task \n ");
+         this.description = in.nextLine();
+
+         System.out.println("Please enter due date of your task \n ");
+          this.dueDate = in.nextInt();
+
+          System.out.println("Please enter the priority level of your task (1 being ver low and 5 being very high) \n ");
+         this.priority = in.nextInt();
+         if(priority < 1 || priority > 5){
+             System.out.println("Invalid priority level entered");
+         }
+        //  this.status = in.nextInt();
+
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public int getDueDate() {
-        return dueDate;
-    }
-
-    public void setDueDate(int dueDate) {
-        this.dueDate = dueDate;
-    }
-
-    public int getPriority() {
-        return priority;
-    }
-
-    public void setPriority(int priority) {
-        this.priority = priority;
-    }
-
-    public int getStatus() {
-        return status;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
-    }
 }
