@@ -51,4 +51,21 @@ public class TaskManager extends Task {
 
     }
 
+    public static String formatTaskDetails(TaskManager taskManager){
+        return "\nTitle: " + taskManager.getTitle() +
+                "\nDescription: " + taskManager.getDescription() +
+                "\nDue Date: " + taskManager.getDueDate() +
+                "\nPriority: " + taskManager.getPriority() +
+                "\nStatus: " + getStatusLabel(taskManager.getStatus());
+    }
+
+    private static String getStatusLabel(int status) {
+        return switch (status) {
+            case 1 -> "TO DO";
+            case 2 -> "IN PROGRESS";
+            case 3 -> "COMPLETED";
+            default -> "Invalid Status";
+        };
+    }
+
 }

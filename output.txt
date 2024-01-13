@@ -1,0 +1,6 @@
+
+Title: Write JUnit test cases for Snake Game
+Description: JUnit test case needs to be written for the snake game. The test should check the snake ability to move left, right, top and bottom. Snake ability to grow. Also, game over when snake hits the edges.
+Due Date: 0
+Priority: 5
+Status: TO DO

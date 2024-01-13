@@ -3,6 +3,8 @@ package com.taskmanagerapp;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import static com.taskmanagerapp.TaskManager.formatTaskDetails;
+
 public class TaskMain {
     public static void main(String[] args) {
 
@@ -15,22 +17,5 @@ public class TaskMain {
             System.out.println("Error writing to file: " + e.getMessage());
         }
 
-    }
-
-    private static String formatTaskDetails(TaskManager taskManager){
-        return "\nTitle: " + taskManager.getTitle() +
-                "\nDescription: " + taskManager.getDescription() +
-                "\nDue Date: " + taskManager.getDueDate() +
-                "\nPriority: " + taskManager.getPriority() +
-                "\nStatus: " + getStatusLabel(taskManager.getStatus());
-    }
-
-    private static String getStatusLabel(int status) {
-        return switch (status) {
-            case 1 -> "TO DO";
-            case 2 -> "IN PROGRESS";
-            case 3 -> "COMPLETED";
-            default -> "Invalid Status";
-        };
     }
 }
