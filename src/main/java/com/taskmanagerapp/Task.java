@@ -1,16 +1,29 @@
 package com.taskmanagerapp;
 
+import jakarta.persistence.*;
+
+import java.time.LocalDate;
+
+@Entity
+@Table(name = "USER STORY")
 public class Task {
+   @Id
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+   @Column(name = "Task Title")
     private String title;
+    @Column(name = "Task Description")
     private String description;
-    private int dueDate;
+    @Column(name = "Task Date")
+    private LocalDate dueDate;
+    @Column(name = "Task Priority")
     private int priority;
+    @Column(name = "Task Status")
     private int status;
 
-    /*public Task() {
-        //taskCreation();
-    }*/
+    public Task() {
+
+    }
 
     public int getId() {
         return id;
@@ -36,11 +49,11 @@ public class Task {
         this.description = description;
     }
 
-    public int getDueDate() {
+    public LocalDate getDueDate() {
         return dueDate;
     }
 
-    public void setDueDate(int dueDate) {
+    public void setDueDate(LocalDate dueDate) {
         this.dueDate = dueDate;
     }
 

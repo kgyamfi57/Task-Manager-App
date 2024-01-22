@@ -55,9 +55,11 @@ public class TaskManager extends Task {
         return "\nTitle: " + taskManager.getTitle() +
                 "\nDescription: " + taskManager.getDescription() +
                 "\nDue Date: " + taskManager.getDueDate() +
-                "\nPriority: " + taskManager.getPriority() +
-                "\nStatus: " + getStatusLabel(taskManager.getStatus());
+                "\nPriority: " + taskManager.getPriority();
+                //"\nStatus: " + getStatusLabel(taskManager.getStatus());
     }
+
+
 
     private static String getStatusLabel(int status) {
         return switch (status) {
