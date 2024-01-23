@@ -1,16 +1,20 @@
 package com.taskmanagerapp;
 
+import jakarta.persistence.EntityManager;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class TaskManager extends Task {
 
-    public TaskManager() {
-        taskCreation();
+    private EntityManager em; // Inject EntityManager dependency
+
+    public TaskManager(EntityManager em) {
+        this.em = em;
     }
 
-    public void taskCreation() {
+    public Task createTask() {
 
         Scanner in = new Scanner(System.in);
 
@@ -48,6 +52,17 @@ public class TaskManager extends Task {
                 System.out.println("Invalid Input");
 
         }
+
+        Task task = new Task();
+        task.setTitle(getTitle());
+        task.setDescription(getDescription());
+        task.setDueDate(getDueDate());
+        task.setPriority(getPriority());
+        task.setStatus(getStatus());
+
+        em.persist(task); // Persist the Task object
+
+        return task;
 
     }
 

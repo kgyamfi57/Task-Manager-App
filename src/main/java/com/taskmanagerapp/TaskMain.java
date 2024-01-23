@@ -8,18 +8,19 @@ import jakarta.persistence.Persistence;
 public class TaskMain {
     public static void main(String[] args) {
 
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("YourPersistenceUnitName");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("Task-Manager-App");
         EntityManager em = emf.createEntityManager();
 
-        em.getTransaction().begin();
+        TaskManager taskManager = new TaskManager(em);
 
-        TaskManager taskManager = new TaskManager();
-        Task task = taskManager; // Assuming you add a method to TaskManager for task creation
+        em.getTransaction().begin();
+        Task task = taskManager.createTask(); // Assuming you add a method to TaskManager for task creation
         em.persist(task);
 
         em.getTransaction().commit();
 
         em.close();
         emf.close();
+
     }
 }
